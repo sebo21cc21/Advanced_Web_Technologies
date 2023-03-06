@@ -1,0 +1,23 @@
+.ogloszenie {
+  background-color: #fff3c5;
+  border: 3px solid black;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+.ogloszenie div {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  font-style: oblique;
+}
+
+.ogloszenie:hover {
+  color: blue;
+}
+
+img {
+  width: 50%;
+}
