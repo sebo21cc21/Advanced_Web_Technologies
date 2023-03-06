@@ -18,23 +18,23 @@ function naph_admin_actions_register_menu(){
 
 function naph_admin_page(){ 
     // get _POST variable from globals 
-    global $_POST; 
+    global $_POST; $opAnon = 'opAnon'; $counter = 3;
     // process changes from form
     if(isset($_POST['naph_do_change'])){ 
-    if($_POST['naph_do_change'] == 'Y'){ 
-    $opAnon1 = wp_kses_post($_POST['naph_announcements1']);
-	$opAnon2 = wp_kses_post($_POST['naph_announcements2']); 
-	$opAnon3 = wp_kses_post($_POST['naph_announcements3']); 
-    echo '<div class="notice notice-success is dismissible"><p>Settings saved.</p></div>'; 
-    update_option('naph_announcements1', $opAnon1); 
-	update_option('naph_announcements2', $opAnon2); 
-    update_option('naph_announcements3', $opAnon3); 
-    } 
+		if($_POST['naph_do_change'] == 'Y'){ 
+			for ($i=1; $i<=$counter; $i++) {
+				${$opAnon . $i} = wp_kses_post($_POST['naph_announcements'.$i]);
+			}
+			echo '<div class="notice notice-success is dismissible"><p>Settings saved.</p></div>'; 
+			for ($i=1; $i<=$counter; $i++) {
+				update_option('naph_announcements'.$i, ${$opAnon . $i});
+			}
+		} 
     } 
     //read current option value
-    $opAnon1 = get_option('naph_announcements1');
-	$opAnon2 = get_option('naph_announcements2');
-	$opAnon3 = get_option('naph_announcements3'); 	
+	for ($i=1; $i<=$counter; $i++) {
+		${$opAnon . $i} = get_option('naph_announcements'.$i);
+	}
     //display admin page
    ?>
     <div class="wrap">
