@@ -7,7 +7,7 @@
  * Requires at least: 5.0
  * Requires PHP: 7.2
  * Author: Sebastian Bednarski, Wojciech Dominiak
- * Author URI: https://github.com/sebo21cc21/Web-Systems
+ * Author URI: https://github.com/sebo21cc21/Advanced_Web_Technologies
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */

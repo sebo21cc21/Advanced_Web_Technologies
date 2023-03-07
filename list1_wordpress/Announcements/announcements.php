@@ -12,11 +12,11 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 // first Page Title, Second Menu Admin title, Third capability, fourth URL from admin side, fifth function to generate admin web
-function naph_admin_actions_register_menu(){ 
-    add_options_page("Announcements Post", "Announcements", 'manage_options', "naph", "naph_admin_page"); 
+function naph_admin_actions(){ 
+    add_options_page("Announcements Post", "Announcements", 'manage_options', "naph_anon", "naph_admin_page_anon"); 
 } 
 
-function naph_admin_page(){ 
+function naph_admin_page_anon(){ 
     // get _POST variable from globals 
     global $_POST; $opAnon = 'opAnon'; $counter = 3;
     // process changes from form
@@ -105,14 +105,14 @@ function naph_add_announcements($content){
 	return $content;
 } 
 
-function naph_register_styles(){ 
+function naph_register_styles_css(){ 
     //enable style (load in meta of html)
     wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . '/css/style.css' );
 } 
 
 
-add_action('init', 'naph_register_styles'); 
-add_action('admin_menu', 'naph_admin_actions_register_menu'); 
+add_action('init', 'naph_register_styles_css'); 
+add_action('admin_menu', 'naph_admin_actions'); 
 add_filter('the_content', "naph_add_announcements"); 
 
 

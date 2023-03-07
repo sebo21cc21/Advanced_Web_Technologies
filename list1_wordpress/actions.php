@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/plugins/actions/
 Description: This is not just a plugin, it symbolizes the hope and enthusiasm of changes Wordpress. 
 Author: Sebastian Bednarski, Wojciech Dominiak
 Version: 1.7.2
-Author URI: https://github.com/sebo21cc21/Web-Systems
+Author URI: https://github.com/sebo21cc21/Advanced_Web_Technologies
 */
 
 function add_Cookie(){
