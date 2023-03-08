@@ -47,33 +47,32 @@ function naph_admin_page_anon(){
 			<label for="amount">Amount:</label>
 			<input type="number" name="amount" id="amount" min="0" max="10" value="<?php echo $amount; ?>">    
 			<div class="announcements-wrapper">
-					<input type="hidden" name="naph_do_change" value="Y">
-					<?php for($i=1; $i<=$amount; $i++): ?>
-						<textarea type="text" name="<?= 'naph_announcements'.$i?>" cols="60" rows="6"><?= $opAnon[$i] ?></textarea>
-					<?php endfor ?>
-				</div>
-				<?php
-				if(isset($_POST['number']) && $_POST['number'] != "") {
-					$number = $_POST['number'];
-					if($number <= $amount) {
-						$settings = array(
-							'textarea_rows' => 6,
-							'media_buttons' => true,
-							'textarea_name' => 'naph_announcements'.$number
-						);	
-						wp_editor($opAnon[$number], 'naph_announcements_editor'.$number, $settings);
-					}
+				<input type="hidden" name="naph_do_change" value="Y">
+				<?php for($i=1; $i<=$amount; $i++): ?>
+					<textarea type="text" name="<?= 'naph_announcements'.$i?>" cols="60" rows="6"><?= $opAnon[$i] ?></textarea>
+				<?php endfor ?>
+			</div>
+			<?php
+			if(isset($_POST['number']) && $_POST['number'] != "") {
+				$number = $_POST['number'];
+				if($number <= $amount) {
+					$settings = array(
+						'textarea_rows' => 6,
+						'media_buttons' => true,
+						'textarea_name' => 'naph_announcements'.$number
+					);	
+					wp_editor($opAnon[$number], 'naph_announcements_editor'.$number, $settings);
 				}
-				?>
-				<h1>Choose announcement to change:</h1>
-				<input type="number" name="number" id="number" min="1" max="<?= $amount ?>" value="<?= ($number <= $amount) ? $number : '' ?>">
-				<?php submit_button( 'Submit' );?>
+			}
+			?>
+			<h1>Choose announcement to change:</h1>
+			<input type="number" name="number" id="number" min="1" max="<?= $amount ?>" value="<?= ($number <= $amount) ? $number : '' ?>">
+			<?php submit_button( 'Submit' );?>
         </form>
     </div>
 <?php
 }   
 	
-
 function naph_add_announcements($content){ 
 	// is it a post
 	if ( is_single() ) {
@@ -88,11 +87,8 @@ function naph_register_styles_css(){
     wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . '/css/style.css' );
 } 
 
-
-
 add_action('init', 'naph_register_styles_css'); 
 add_action('admin_menu', 'naph_admin_actions'); 
 add_filter('the_content', "naph_add_announcements"); 
-
 
 ?>
