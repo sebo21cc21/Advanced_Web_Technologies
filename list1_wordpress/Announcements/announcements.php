@@ -84,12 +84,10 @@ function naph_add_announcements($content){
 } 
 
 function naph_register_styles_css(){ 
-    //register style
-	wp_register_style('naph_styles', plugins_url('/css/style.css', __FILE__));
-        
-	//enable style (load in meta of html)
-	wp_enqueue_style('naph_styles');
+    //enable style (load in meta of html)
+    wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . '/css/style.css' );
 } 
+
 
 
 add_action('init', 'naph_register_styles_css'); 
