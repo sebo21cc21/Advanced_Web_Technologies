@@ -1,0 +1,60 @@
+nav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+nav ul {
+  text-align: center;
+  list-style-type: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
+}
+nav ul li {
+  display: inline;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 17px;
+}
+nav ul li a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 14px;
+}
+nav ul li a:hover {
+  background-color: #111;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container .item {
+  padding: 6%;
+  text-align: center;
+}
+.container .item img {
+  width: auto;
+  height: 300px;
+  animation: fadeIn 5s;
+}
+@keyframes sun-rise {
+  from {
+    /* pushes the sun down past the viewport */
+    transform: translateY(110vh);
+  }
+  to {
+    /* returns the sun to its default position */
+    transform: translateY(0);
+  }
+}
+.container .item .chair {
+  background-color: yellow;
+  border-radius: 50%; /* creates a circular background */
+  height: 100vh; /* makes the sun the size of the viewport */
+  aspect-ratio: 1/1;
+  animation: 4s linear 0s infinite alternate sun-rise;
+}/*# sourceMappingURL=style.css.map */
