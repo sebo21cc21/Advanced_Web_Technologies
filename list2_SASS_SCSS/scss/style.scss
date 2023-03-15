@@ -1,60 +1,6 @@
-nav {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    ul {
-      text-align: center;
-      list-style-type: none;
-      list-style-type: none;
-      margin: 0;
-      padding: 15px;
-      li {
-        display: inline;
-        font-family: "Fira Sans", sans-serif;
-        font-size: 17px;
-        a {
-          color: #f2f2f2;
-          text-decoration: none;
-          padding: 14px;
-          &:hover {
-            background-color: #111;
-          }
-        }
-      }
-    }
-  }
-
-.container {
-  background-color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  .item{
-      padding: 6%;
-      text-align: center;
-      img{
-          width: auto;
-          height: 300px;
-          animation: fadeIn 5s;
-    }
-    @keyframes sun-rise {
-      from {
-        /* pushes the sun down past the viewport */
-        transform: translateY(110vh);
-      }
-      to {
-        /* returns the sun to its default position */
-        transform: translateY(0);
-      }
-    }
-  .chair{
-    background-color: yellow;
-    border-radius: 50%; /* creates a circular background */
-    height: 100vh; /* makes the sun the size of the viewport */
-    aspect-ratio: 1 / 1;
-    animation: 4s linear 0s infinite alternate sun-rise;
-  }
-  }
-}
+@import "variable";
+@import "extend";
+@import "navbar";
+@import "maxin";
+@import "container";
+@import "button";

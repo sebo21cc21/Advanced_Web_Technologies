@@ -1,21 +1,28 @@
+.button-basic, button, .container h1, nav ul li {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 nav {
   overflow: hidden;
   background-color: #333;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
 }
+nav img {
+  width: auto;
+  height: 50px;
+}
 nav ul {
   text-align: center;
-  list-style-type: none;
   list-style-type: none;
   margin: 0;
   padding: 15px;
 }
 nav ul li {
   display: inline;
-  font-family: "Fira Sans", sans-serif;
-  font-size: 17px;
 }
 nav ul li a {
   color: #f2f2f2;
@@ -25,7 +32,61 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #111;
 }
+nav ul .burger {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  nav ul li {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  nav ul .burger {
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  nav ul .burger :before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+  }
+  nav ul .burger:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  nav ul .menu {
+    display: none;
+  }
+  nav ul .menu.open {
+    display: block;
+  }
+  nav ul .menu li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
 
+@keyframes zoom-in {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@keyframes zoom-out {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .container {
   background-color: rgba(255, 255, 255, 0.7);
   display: flex;
@@ -38,23 +99,33 @@ nav ul li a:hover {
 }
 .container .item img {
   width: auto;
-  height: 300px;
-  animation: fadeIn 5s;
+  height: 500px;
+  transition: transform 0.3s ease-in-out;
+  animation-name: zoom-in, zoom-out;
+  animation-duration: 0.5s, 0.3s;
+  animation-delay: 0s, 0.5s;
+  animation-fill-mode: forwards;
 }
-@keyframes sun-rise {
-  from {
-    /* pushes the sun down past the viewport */
-    transform: translateY(110vh);
-  }
-  to {
-    /* returns the sun to its default position */
-    transform: translateY(0);
-  }
+.container .item img:hover {
+  animation-name: zoom-in;
+  animation-delay: 0.5s;
 }
-.container .item .chair {
-  background-color: yellow;
-  border-radius: 50%; /* creates a circular background */
-  height: 100vh; /* makes the sun the size of the viewport */
-  aspect-ratio: 1/1;
-  animation: 4s linear 0s infinite alternate sun-rise;
+.button-basic, button {
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+button {
+  background-color: #5b29c1;
+}
+
+button:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+  background-color: rgb(237, 45, 144);
+  transition: background-color 0.5s linear;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,19 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .item{
+        padding: calc(6px / 100px * 100%);
+        text-align: center;
+        img{
+            width: auto;
+            height: 500px;
+            @include zoom-on-hover(0.5s); // dodanie mixinu
+      }
+    }
+    h1 {
+        @extend %font;
+    }
+  }
+  

@@ -1,0 +1,30 @@
+@mixin zoom-on-hover($delay: 0s) {
+    transition: transform 0.3s ease-in-out;
+    animation-name: zoom-in, zoom-out;
+    animation-duration: 0.5s, 0.3s;
+    animation-delay: 0s, $delay;
+    animation-fill-mode: forwards;
+    &:hover {
+      animation-name: zoom-in;
+      animation-delay: $delay;
+    }
+  }
+  
+  @keyframes zoom-in {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes zoom-out {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
