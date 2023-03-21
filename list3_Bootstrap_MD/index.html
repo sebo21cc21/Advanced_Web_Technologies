@@ -19,6 +19,7 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <!-- Start your project here-->
@@ -26,7 +27,7 @@
       <!--Main Navigation-->
       <header>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button
@@ -70,12 +71,34 @@
           </div>
         </nav>
         <!--/.Navbar-->
-
+        <!--Mask-->
+        <div class="bg-image" id="intro">
+          <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+              <div class="row d-flex justify-content-center text-center">
+                <div class="col-md-10">
+                  <!-- Heading -->
+                  <h2 class="display-4 fw-bold text-white pt-5 mb-2">Podróżowanie</h2>
+                  <!-- Divider -->
+                  <hr class="hr" style="color: white">
+                  <!-- Description -->
+                  <h4 class="text-white my-4">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur.
+                  </h4>
+                  <button type="button" class="btn btn-outline-light">
+                    Dowiedz się więcej <i class="fas fa-book ms-2"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.Mask-->
       </header>
       <!--Main Navigation-->
 
       <!--Main layout-->
-      <main>
+      <main class="mt-2">
 
       </main>
       <!--Main layout-->
