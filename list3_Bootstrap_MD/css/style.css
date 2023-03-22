@@ -1,0 +1,31 @@
+html,
+body,
+header,
+#intro {
+    height: 100%;
+}
+#intro {
+    background: url("../img/bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.shadow-custom {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+hr {
+    opacity: 0.3 !important;
+}
+
+figure {
+    border-left: .35rem solid #fcdb5e;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.card {
+    cursor: pointer;
+}
