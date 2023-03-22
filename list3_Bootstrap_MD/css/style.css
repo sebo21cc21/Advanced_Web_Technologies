@@ -18,3 +18,10 @@ header,
 hr {
     opacity: 0.3 !important;
 }
+
+figure {
+    border-left: .35rem solid #fcdb5e;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
