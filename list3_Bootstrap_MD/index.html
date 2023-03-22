@@ -128,7 +128,7 @@
           <!--Section: LastTravels-->
           <section id="lastTravels" class="text-center">
             <!--Grid row-->
-            <div class="row">
+            <div class="row" data-aos="fade-left">
               <!--Grid column-->
               <div class="col-lg-4 col-md-12 mb-4">
                 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
@@ -174,7 +174,7 @@
             </div>
             <!--Grid row-->
             <!--Grid row-->
-            <div class="row">
+            <div class="row" data-aos="fade-right">
               <!--Grid column-->
               <div class="col-lg-4 col-md-12 mb-4">
                 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
@@ -272,7 +272,7 @@
                     <div class="row">
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_woman.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_woman.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Deborah Jones</h4>
                             <p class="card-text">Manager of Accounting</p>
@@ -281,7 +281,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_man.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_man.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Jack Willis</h4>
                             <p class="card-text">Director of Human Resources</p>
@@ -290,7 +290,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_man.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_man.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Martin Wood</h4>
                             <p class="card-text">Chief Technology Officer</p>
@@ -303,7 +303,7 @@
                     <div class="row">
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_man.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_man.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Justin Portman</h4>
                             <p class="card-text">Sales Manager</p>
@@ -312,7 +312,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_woman.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_woman.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Jessica Mountain</h4>
                             <p class="card-text">Sales Assistant</p>
@@ -321,7 +321,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_woman.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_woman.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Cristina Fellins</h4>
                             <p class="card-text">Chief Technology Assistant</p>
@@ -334,7 +334,7 @@
                     <div class="row">
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_man.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_man.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Woody Allen</h4>
                             <p class="card-text">Movie Manager</p>
@@ -343,7 +343,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_man.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_man.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">John Doe</h4>
                             <p class="card-text">Travel Manager</p>
@@ -352,7 +352,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <div class="card h-100">
-                          <img class="img-fluid card-img-top" src="img/employee_man.jpg">
+                          <img class="img-fluid card-img-top" src="img/employee_man.jpg" alt="">
                           <div class="card-body">
                             <h4 class="card-title">Brandon Hoover</h4>
                             <p class="card-text">IT Specialist</p>
@@ -449,7 +449,7 @@
           <hr class="my-5">
           <!--Section: Quote-->
           <section id="quote">
-            <div class="row">
+            <div class="row" data-aos="zoom-in-up">
               <div class="col-12">
                 <figure class="bg-light p-4">
                   <i class="fas fa-quote-left fa-2x mb-4" style="color: #fcdb5e;"></i>
@@ -472,7 +472,7 @@
           <hr class="my-5">
           <!--Section: Chart-->
           <section id="chart">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" data-aos="flip-up">
               <h3>The most popular destinations</h3>
               <canvas id="pieChart" height="400"></canvas>
             </div>
@@ -522,8 +522,57 @@
       <!--Main layout-->
 
       <!--Footer-->
-      <footer>
+      <footer class="bg-primary text-center text-white mt-4">
+        <!-- Grid container -->
+        <div class="container p-3 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-3">
+            <!-- Facebook -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #3b5998;"
+                    href="#!"
+                    role="button"
+            ><i class="fab fa-facebook-f"></i
+            ></a>
 
+            <!-- Instagram -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #ac2bac;"
+                    href="#!"
+                    role="button"
+            ><i class="fab fa-instagram"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #55acee;"
+                    href="#!"
+                    role="button"
+            ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #dd4b39;"
+                    href="#!"
+                    role="button"
+            ><i class="fab fa-google"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
       </footer>
       <!--Footer-->
 
