@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class AuthorService implements IAuthorService {
 
-    private static List<Author> authorsRepo = new ArrayList<>();
+    private static final List<Author> authorsRepo = new ArrayList<>();
 
     static {
         authorsRepo.add(new Author(1, "Henryk", "Sienkiewicz"));
@@ -20,7 +20,7 @@ public class AuthorService implements IAuthorService {
         authorsRepo.add(new Author(3, "Juliusz", "Słowacki"));
     }
 
-    private boolean isValidAuthor(Author author) {
+    public boolean isValidAuthor(Author author) {
         return author.getName() != null && author.getSurname() != null && !author.getName().equals("")
                 && !author.getSurname().equals("");
     }
@@ -51,7 +51,7 @@ public class AuthorService implements IAuthorService {
     @Override
     public Author updateAuthor(Author author) throws ObjectNotFoundException, InvalidObjectException {
         Author authorToUpdate = authorsRepo.stream()
-                .filter(b -> b.getId() == author.getId())
+                .filter(a -> a.getId() == author.getId())
                 .findFirst()
                 .orElseThrow(ObjectNotFoundException::new);
         if (isValidAuthor(author))

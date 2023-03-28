@@ -2,6 +2,8 @@ package com.example.books.Services;
 
 import com.example.books.Entities.Author;
 import com.example.books.Entities.Book;
+import com.example.books.Exceptions.InvalidObjectException;
+import com.example.books.Exceptions.ObjectNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -31,48 +33,47 @@ public class BookService implements IBookService {
         return booksRepo;
     }
     @Override
-    public Book getBook(int id) {
+    public Book getBook(int id) throws ObjectNotFoundException {
         return booksRepo.stream()
                 .filter(b -> b.getId() == id)
                 .findAny()
-                .orElse(null);
+                .orElseThrow(ObjectNotFoundException::new);
     }
 
     @Override
-    public Book addBook(Book book) {
-        if (isValidBook(book)) {
+    public Book addBook(Book book) throws InvalidObjectException {
+        if (isValidBook(book) && authorService.isValidAuthor(book.getAuthor())) {
             book.setId(booksRepo.get(booksRepo.size() - 1).getId() + 1);
             booksRepo.add(book);
             return book;
         }
-        return null;
+        throw new InvalidObjectException();
     }
 
     @Override
-    public Book updateBook(Book book) {
+    public Book updateBook(Book book) throws ObjectNotFoundException, InvalidObjectException {
         Book bookToUpdate = booksRepo.stream()
                 .filter(b -> b.getId() == book.getId())
                 .findFirst()
-                .orElse(null);
-        if (bookToUpdate != null)
+                .orElseThrow(ObjectNotFoundException::new);
+        if (isValidBook(book) && authorService.isValidAuthor(book.getAuthor()))
         {
             bookToUpdate.setAuthor(book.getAuthor());
             bookToUpdate.setTitle(book.getTitle());
             bookToUpdate.setPages(book.getPages());
+            return bookToUpdate;
         }
-        return bookToUpdate;
+        throw new InvalidObjectException();
     }
 
     @Override
-    public void deleteBook(int id) {
-        Book bookToDelete = booksRepo.stream()
+    public void deleteBook(int id) throws ObjectNotFoundException {
+        booksRepo.stream()
                 .filter(b -> b.getId() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(ObjectNotFoundException::new);
 
-        if (bookToDelete != null) {
-            booksRepo.removeIf(b -> b.getId() == id);
-        }
+        booksRepo.removeIf(b -> b.getId() == id);
     }
 
 
