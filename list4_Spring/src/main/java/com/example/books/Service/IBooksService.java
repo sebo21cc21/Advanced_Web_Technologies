@@ -1,6 +1,6 @@
 package com.example.books.Service;
 
-import com.example.books.Constructors.Book;
+import com.example.books.Entities.Book;
 
 import java.util.Collection;
 public interface IBooksService {
