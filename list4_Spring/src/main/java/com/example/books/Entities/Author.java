@@ -8,5 +8,6 @@ import lombok.Data;
 public class Author {
     private int id;
     private String name;
+    private Author author;
     private String surname;
 }
