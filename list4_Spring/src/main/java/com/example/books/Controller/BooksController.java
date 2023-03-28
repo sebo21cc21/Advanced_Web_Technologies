@@ -1,6 +1,6 @@
 package com.example.books.Controller;
 
-import com.example.books.Service.IBooksService;
+import com.example.books.Service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BooksController {
     @Autowired
-    IBooksService booksService;
+    IBookService booksService;
     @RequestMapping(value = "/get/books", method = RequestMethod.GET)
     public ResponseEntity<Object> getBooks(){
-        return new ResponseEntity<>(booksService.getBooks(), HttpStatus.OK);
+        return new ResponseEntity<>(booksService.getAllBooks(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/get/book/{id}", method = RequestMethod.GET)

@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @Service
-public class BooksService implements IBooksService {
+public class BookService implements IBookService {
     private static List<Book> booksRepo = new ArrayList<>();
     static {
-        booksRepo.add(new Book(1,"Potop", "Henryk Sienkiewicz", 936));
-        booksRepo.add(new Book(2,"Wesele", "Stanisław Reymont", 150));
-        booksRepo.add(new Book(3,"Dziady", "Adam Mickiewicz", 292));
+//        booksRepo.add(new Book(1,"Potop", "Henryk Sienkiewicz", 936));
+//        booksRepo.add(new Book(2,"Wesele", "Stanisław Reymont", 150));
+//        booksRepo.add(new Book(3,"Dziady", "Adam Mickiewicz", 292));
     }
     @Override
-    public Collection<Book> getBooks() {
+    public Collection<Book> getAllBooks() {
         return booksRepo;
     }
     @Override
