@@ -1,6 +1,8 @@
 package com.example.books.Services;
 
 import com.example.books.Entities.Author;
+import com.example.books.Exceptions.InvalidObjectException;
+import com.example.books.Exceptions.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,46 +31,45 @@ public class AuthorService implements IAuthorService {
     }
 
     @Override
-    public Author getAuthor(int id) {
+    public Author getAuthor(int id) throws ObjectNotFoundException{
         return authorsRepo.stream()
                 .filter(a -> a.getId() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(ObjectNotFoundException::new);
     }
 
     @Override
-    public Author addAuthor(Author author) {
+    public Author addAuthor(Author author) throws InvalidObjectException {
         if (isValidAuthor(author)) {
             author.setId(authorsRepo.get(authorsRepo.size() - 1).getId() + 1);
             authorsRepo.add(author);
             return author;
         }
-        return null;
+        throw new InvalidObjectException();
     }
 
     @Override
-    public Author updateAuthor(Author author) {
+    public Author updateAuthor(Author author) throws ObjectNotFoundException, InvalidObjectException {
         Author authorToUpdate = authorsRepo.stream()
                 .filter(b -> b.getId() == author.getId())
                 .findFirst()
-                .orElse(null);
-        if (authorToUpdate != null)
+                .orElseThrow(ObjectNotFoundException::new);
+        if (isValidAuthor(author))
         {
             authorToUpdate.setName(author.getName());
             authorToUpdate.setSurname(author.getSurname());
+            return authorToUpdate;
         }
-        return authorToUpdate;
+        throw new InvalidObjectException();
     }
 
     @Override
-    public void deleteAuthor(int id) {
-        Author authorToDelete = authorsRepo.stream()
+    public void deleteAuthor(int id) throws ObjectNotFoundException {
+        authorsRepo.stream()
                 .filter(a -> a.getId() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(ObjectNotFoundException::new);
 
-        if (authorToDelete != null) {
-            authorsRepo.removeIf(b -> b.getId() == id);
-        }
+        authorsRepo.removeIf(b -> b.getId() == id);
     }
 }
