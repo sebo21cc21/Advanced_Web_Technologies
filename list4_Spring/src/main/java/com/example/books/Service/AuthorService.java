@@ -71,6 +71,5 @@ public class AuthorService implements IAuthorService {
         if (authorToDelete != null) {
             authorsRepo.removeIf(b -> b.getId() == id);
         }
-
     }
 }
