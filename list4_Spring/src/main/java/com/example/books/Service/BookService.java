@@ -1,5 +1,6 @@
 package com.example.books.Service;
 
+import com.example.books.Entities.Author;
 import com.example.books.Entities.Book;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -9,8 +10,10 @@ import java.util.List;
 public class BookService implements IBookService {
     private static List<Book> booksRepo = new ArrayList<>();
     static {
-//        booksRepo.add(new Book(1,"Potop", "Henryk Sienkiewicz", 936));
-//        booksRepo.add(new Book(2,"Wesele", "Stanisław Reymont", 150));
+//        booksRepo.add(new Book(1, new Author(1, "Henryk", "Sienkiewicz"),
+//                "W pustyni i w puszczy", 936));
+//        booksRepo.add(new Book(1, new Author(2, "Adam", "Mickiewicz"),
+//                "Pan Tadeusz", 936));
 //        booksRepo.add(new Book(3,"Dziady", "Adam Mickiewicz", 292));
     }
     @Override
