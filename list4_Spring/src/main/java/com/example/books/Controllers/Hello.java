@@ -1,4 +1,4 @@
-package com.example.books.Controller;
+package com.example.books.Controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

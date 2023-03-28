@@ -1,7 +1,6 @@
-package com.example.books.Service;
+package com.example.books.Services;
 
 import com.example.books.Entities.Author;
-import com.example.books.Entities.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
