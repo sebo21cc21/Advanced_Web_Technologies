@@ -1,13 +1,13 @@
-package com.example.books;
+package com.pwr.weblablibrary;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MainLibraryApiTests {
+class WeblabLibraryApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

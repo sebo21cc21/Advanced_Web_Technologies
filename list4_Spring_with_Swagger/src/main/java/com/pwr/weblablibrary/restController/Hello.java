@@ -1,4 +1,4 @@
-package com.example.books.Constructors;
+package com.pwr.weblablibrary.restController;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
