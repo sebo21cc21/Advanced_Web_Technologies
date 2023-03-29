@@ -21,7 +21,7 @@ public class BorrowingController {
     IBorrowingService borrowingService;
 
     @RequestMapping(value = "/get/borrowings", method = RequestMethod.GET)
-    public ResponseEntity<Object> getBooks(){
+    public ResponseEntity<Object> getBorrowings(){
         return new ResponseEntity<>(borrowingService.getAllBorrowings(), HttpStatus.OK);
     }
 

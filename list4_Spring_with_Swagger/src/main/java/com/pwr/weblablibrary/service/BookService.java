@@ -77,6 +77,4 @@ public class BookService implements IBookService {
 
         booksRepo.removeIf(b -> b.getId() == id);
     }
-
-
 }
