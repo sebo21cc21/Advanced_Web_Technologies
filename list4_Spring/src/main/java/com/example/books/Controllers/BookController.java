@@ -47,7 +47,7 @@ public class BookController {
         }
     }
 
-    @RequestMapping(value = "/delete/author/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/book/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteBook(@PathVariable int id){
         try {
             bookService.deleteBook(id);

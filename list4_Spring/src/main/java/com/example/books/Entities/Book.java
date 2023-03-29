@@ -10,4 +10,5 @@ public class Book {
     private Author author;
     private String title;
     private int pages;
+    private boolean isBorrowed;
 }

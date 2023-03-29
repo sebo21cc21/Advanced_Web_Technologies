@@ -14,14 +14,15 @@ import java.util.List;
 public class BookService implements IBookService {
 
     private final AuthorService authorService;
-    private static List<Book> booksRepo = new ArrayList<>();
+    private static final List<Book> booksRepo = new ArrayList<>();
+
     static {
         booksRepo.add(new Book(1, new Author(1, "Henryk", "Sienkiewicz"),
-                "W pustyni i w puszczy", 936));
+                "W pustyni i w puszczy", 936, false));
         booksRepo.add(new Book(2, new Author(2, "Adam", "Mickiewicz"),
-                "Pan Tadeusz", 334));
+                "Pan Tadeusz", 334, false));
         booksRepo.add(new Book(3,new Author(3, "Juliusz", "Słowacki"),
-                "Balldayna", 170));
+                "Balldayna", 170, false));
     }
 
     private boolean isValidBook(Book book) {
