@@ -41,7 +41,14 @@ public class BorrowingService implements IBorrowingService {
         }
 
         bookToBorrow.setBorrowed(true);
-        Borrowing newBorrowing = new Borrowing(borrowingRepo.get(borrowingRepo.size() - 1).getId() + 1, bookToBorrow,
+        int borrowingId;
+        if (borrowingRepo.size() == 0) {
+            borrowingId = 1;
+        }
+        else {
+            borrowingId = borrowingRepo.get(borrowingRepo.size()-1).getId() + 1;
+        }
+        Borrowing newBorrowing = new Borrowing(borrowingId, bookToBorrow,
                 LocalDateTime.now(), null);
         borrowingRepo.add(newBorrowing);
         return newBorrowing;
