@@ -3,7 +3,7 @@
     <h1>Znajomi</h1>
 
     <person-form @add-person="addPerson" />
-    <persons-table :personsSource="persons" />
+    <persons-table :personsSource="persons" @remove-person="removePerson" />
   </div>
 </template>
   
@@ -62,6 +62,12 @@ export default {
       this.person.name = "";
       this.person.email = "";
       this.person.phone = "";
+    },
+    removePerson(id) {
+      const index = this.persons.findIndex((person) => person.id === id);
+      if (index !== -1) {
+        this.persons.splice(index, 1);
+      }
     },
 
     async getPersons() {

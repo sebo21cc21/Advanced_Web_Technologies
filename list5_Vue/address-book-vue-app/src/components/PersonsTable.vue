@@ -3,11 +3,12 @@
     <table>
       <!-- ...thead... -->
       <thead>
-         <tr>
+        <tr>
           <th>Imię i nazwisko</th>
           <th>email</th>
           <th>telefon</th>
-          <th>Akcje</th>
+          <th>Usuwanie</th>
+          <th>Edytowanie</th>
         </tr>
       </thead>
       <tbody>
@@ -15,7 +16,8 @@
           <td>{{ person.name }}</td>
           <td>{{ person.email }}</td>
           <td>{{ person.phone }}</td>
-          <td><button @click="removePerson(person)">Usuń</button></td>
+          <td><button @click="removePerson(person.id)">Usuń</button></td>
+          <td><button @click="$emit('edit-person', person)">Edytuj</button></td>
         </tr>
       </tbody>
     </table>
@@ -33,13 +35,17 @@ export default {
     };
   },
   methods: {
-    removePerson(person) {
-      const index = this.persons.indexOf(person);
+    removePerson(id) {
+      const index = this.persons.findIndex((person) => person.id === id);
       if (index !== -1) {
-        this.persons.splice(index, 1);
+        const newPersons = [...this.persons];
+        newPersons.splice(index, 1);
+        this.persons = newPersons;
+        this.$emit("remove-person", id); // emit the event to the parent component
       }
     },
   },
+  
 };
 </script>
 <style scoped></style>
