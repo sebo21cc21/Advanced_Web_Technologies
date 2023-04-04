@@ -1,5 +1,5 @@
 # address-book-vue-app
-
+cd ./address-book-vue-app
 ## Project setup
 ```
 npm install
