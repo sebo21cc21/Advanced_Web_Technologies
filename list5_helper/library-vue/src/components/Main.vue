@@ -4,7 +4,6 @@
     <div class="text-center">
       <h1 class="text-primary">Witamy w bibliotece</h1>
       <h2 class="text-secondary">Wybierz opcję u góry</h2>
-      <img src="biblioteka.jpg" alt="Biblioteka" width="800">
     </div>
   </div>
 
