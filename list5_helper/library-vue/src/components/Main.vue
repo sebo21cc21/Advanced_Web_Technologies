@@ -2,12 +2,10 @@
   <CustomNavbar></CustomNavbar>
   <div class="d-flex justify-content-center p-5 container">
     <div class="text-center">
-      <h1 class="text-primary">Witamy w bibliotece</h1>
-      <h2 class="text-secondary">Wybierz opcję u góry</h2>
+      <p class="display-1 text-primary">Biblioteka</p>
+      <h2 class="text-secondary">Wybierz opcję z dostępnych u góry</h2>
     </div>
   </div>
-
-
 </template>
 
 <script>

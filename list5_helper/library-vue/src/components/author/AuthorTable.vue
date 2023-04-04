@@ -6,8 +6,8 @@
       <tr>
         <th>Imię</th>
         <th>Nazwisko</th>
+        <th>Edytuj</th>
         <th>Usuń</th>
-        <th>Aktualizuj</th>
       </tr>
       </thead>
       <tbody>
@@ -15,10 +15,10 @@
         <td>{{ author.firstName }}</td>
         <td>{{ author.lastName }}</td>
         <td>
-          <button class="btn btn-danger" @click="deleteAuthor(author.id)">Usuń</button>
+          <button class="btn btn-primary" @click="this.$router.push({ name: 'authorUpdate', params: { id: author.id } });">Edytuj</button>
         </td>
         <td>
-          <button class="btn btn-primary" @click="this.$router.push({ name: 'authorUpdate', params: { id: author.id } });">Aktualizuj</button>
+          <button class="btn btn-danger" @click="deleteAuthor(author.id)">Usuń</button>
         </td>
       </tr>
       </tbody>
