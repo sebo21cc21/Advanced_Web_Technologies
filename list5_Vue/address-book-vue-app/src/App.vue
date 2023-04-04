@@ -18,6 +18,7 @@ export default {
   },
   data() {
     return {
+      //static data
       persons: [
         {
           id: 1,
@@ -46,6 +47,11 @@ export default {
       },
     };
   },
+  //async get data from .json
+  // mounted() {
+  //   this.getPersons();
+  // },
+
   methods: {
     addPerson(newPerson) {
       console.log("uruchomiono addPerson");
@@ -56,6 +62,18 @@ export default {
       this.person.name = "";
       this.person.email = "";
       this.person.phone = "";
+    },
+
+    async getPersons() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        const data = await response.json();
+        this.persons = data;
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 };
