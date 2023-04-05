@@ -5,24 +5,24 @@
       <thead>
       <tr>
         <th>Tytuł</th>
-        <th>Autor</th>
         <th>Liczba stron</th>
+        <th>Autor</th>
         <th>Czy wypożyczona</th>
-        <th>Edytuj</th>
         <th>Usuń</th>
+        <th>Aktualizuj</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(book, index) in paginatedBooks()" :key="book.id">
+      <tr v-for="(book) in paginatedBooks()" :key="book.id">
         <td>{{ book.title }}</td>
-        <td>{{ book.author.firstName + " " + book.author.lastName }}</td>
         <td>{{ book.pages }}</td>
+        <td>{{ book.author.lastName }}</td>
         <td>{{ book.borrowed }}</td>
         <td>
-          <button class="btn btn-primary" @click="this.$router.push({ name: 'bookUpdate', params: { id: book.id } });">Edytuj</button>
+          <button @click="deleteBook(book.id)" class="btn btn-danger">Usuń</button>
         </td>
         <td>
-          <button @click="deleteBook(book.id)" class="btn btn-danger">Usuń</button>
+          <button class="btn btn-success" @click="this.$router.push({ name: 'bookUpdate', params: { id: book.id } });">Aktualizuj</button>
         </td>
       </tr>
       </tbody>

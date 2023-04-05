@@ -1,7 +1,6 @@
 <template>
   <CustomNavbar></CustomNavbar>
-  <div id="person-form" class="container mt-4">
-    <h1>Edytuj książkę</h1>
+  <div id="person-form" class="container">
     <form @submit.prevent="handleSubmit">
       <label>Tytuł</label>
       <input
@@ -23,7 +22,7 @@
         <option
             v-for="a in authors" :key="a.id"
         >
-          {{ a.firstName + " " + a.lastName }}
+          {{ a.lastName }}
         </option>
       </select>
       <p v-if="error && submitting" class="error-message">
@@ -32,7 +31,7 @@
       <p v-if="success" class="success-message">
         Dane poprawnie zapisano
       </p>
-      <button class="btn btn-primary mt-3">Zapisz</button>
+      <button class="btn btn-primary mt-3">Dodaj książkę</button>
     </form>
   </div>
 </template>

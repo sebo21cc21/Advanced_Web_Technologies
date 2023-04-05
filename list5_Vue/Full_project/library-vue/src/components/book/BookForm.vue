@@ -10,15 +10,6 @@
           @focus="clearStatus"
           @keypress="clearStatus"
       />
-      <label>Autor</label>
-      <select v-model="book.author">
-        <option
-            v-for="a in authors" :key="a.id"
-            @focus="clearStatus"
-        >
-          {{a.firstName + " " + a.lastName}}
-        </option>
-      </select>
       <label>Liczba stron</label>
       <input
           v-model="book.pages"
@@ -26,6 +17,15 @@
           :class="{ 'has-error': submitting && invalidPages }"
           @focus="clearStatus"
       />
+      <label>Autor</label>
+      <select v-model="book.author">
+        <option
+            v-for="a in authors" :key="a.id"
+            @focus="clearStatus"
+        >
+          {{a.lastName}}
+        </option>
+      </select>
       <p v-if="error && submitting" class="error-message">
         Proszę wypełnić wskazane pola formularza
       </p>

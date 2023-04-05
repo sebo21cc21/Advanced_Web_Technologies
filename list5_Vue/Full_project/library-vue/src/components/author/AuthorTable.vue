@@ -6,19 +6,19 @@
       <tr>
         <th>Imię</th>
         <th>Nazwisko</th>
-        <th>Edytuj</th>
         <th>Usuń</th>
+        <th>Aktualizuj</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(author, index) in paginatedAuthors()" :key="author.id">
+      <tr v-for="(author) in paginatedAuthors()" :key="author.id">
         <td>{{ author.firstName }}</td>
         <td>{{ author.lastName }}</td>
         <td>
-          <button class="btn btn-primary" @click="this.$router.push({ name: 'authorUpdate', params: { id: author.id } });">Edytuj</button>
+          <button class="btn btn-danger" @click="deleteAuthor(author.id)">Usuń</button>
         </td>
         <td>
-          <button class="btn btn-danger" @click="deleteAuthor(author.id)">Usuń</button>
+          <button class="btn btn-success" @click="this.$router.push({ name: 'authorUpdate', params: { id: author.id } });">Aktualizuj</button>
         </td>
       </tr>
       </tbody>

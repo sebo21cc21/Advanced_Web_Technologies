@@ -1,7 +1,6 @@
 <template>
   <CustomNavbar></CustomNavbar>
-  <div id="person-form" class="container mt-4">
-    <h1>Edytuj autora</h1>
+  <div id="person-form" class="container">
     <form @submit.prevent="handleSubmit">
       <label>Imię</label>
       <input
@@ -26,18 +25,16 @@
       <p v-if="success" class="success-message">
         Dane poprawnie zapisano
       </p>
-      <button class="btn btn-primary mt-3">Zapisz</button>
+      <button class="btn btn-primary">Dodaj autora</button>
     </form>
   </div>
 </template>
 <script>
 
 import axios from "axios";
-import CustomNavbar from "@/components/utils/CustomNavbar.vue";
 
 export default {
   name: 'AuthorUpdate',
-  components: {CustomNavbar},
   data() {
     return {
       submitting: false,
