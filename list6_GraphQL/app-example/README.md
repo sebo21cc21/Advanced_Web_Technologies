@@ -31,14 +31,13 @@ query {
 }
 
 ```
-+ Get a user's login, name, and todos (without a typo)
++ Get all todos and their users
 ```
 query {
-  user(id: 1) {
-    login
-    name
-    todos {
-      title
+  todos{
+    title
+    users {
+      name
     }
   }
 }
