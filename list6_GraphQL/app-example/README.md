@@ -110,7 +110,6 @@ mutation {
     }
   }
 }
-
 ```
 + Update a todo
 ```
