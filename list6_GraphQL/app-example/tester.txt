@@ -1,0 +1,104 @@
+npm install
+
+terminal 1:
+node src/staticApp.js
+
+terminal 2:
+npm start
+
+terminal 3:
+node src/databaseApp.js
+
+query{ 
+ user(id:1){
+ login
+ name
+ todos{
+  title
+  }
+ } 
+}
+
+query{ 
+ user(id:1){
+ login
+ name
+ todos{
+  title
+  }
+ } 
+} 
+
+query{ 
+ users{
+ id
+ login
+ name
+ todos{
+  id
+  title
+  }
+ } 
+} 
+
+mutation {
+  createUser(input: { name: "Jan Kowalski", email: "jan.kowalski@example.com", login: "jankow" }) {
+    id
+    name
+    email
+    login
+  }
+}
+
+mutation {
+  updateUser(input: { id:11, name: "Janek Kowal", email: "jan12.kowalski@example.com", login: "djankow" }) {
+    id
+    name
+    email
+    login
+  }
+}
+
+mutation {
+  deleteUser(id:11)
+}
+
+mutation {
+  createTodo(
+    input: {
+      title: "New todo",
+      completed: false,
+      userId: 1
+    })
+  {
+    id
+    title
+    completed
+    user {
+      id
+    }
+  }
+}
+
+mutation {
+  updateTodo(
+    id: 1,
+    input: {
+      title: "Updated todo",
+      completed: true
+      userId: 1
+    }
+  ) {
+    id
+    title
+    completed
+    user {
+      id
+      name
+    }
+  }
+}
+
+mutation {
+  deleteTodo(id: 205)
+}
