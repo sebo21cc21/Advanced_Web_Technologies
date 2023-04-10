@@ -6,10 +6,10 @@ This repository provides an implementation of a GraphQL server that allows you t
 
 To run the GraphQL server, follow these steps:
 
-Install dependencies by running npm install.
-- In terminal 1, run ```node src/staticApp.js.```
-- In terminal 2, run ``npm start.```
-- In terminal 3, run ```node src/databaseApp.js.```
+Install dependencies by running ```npm install```
+- In terminal 1, run ```node src/staticApp.js```
+- In terminal 2, run ```npm start```
+- In terminal 3, run ```node src/databaseApp.js```
 The server should now be up and running.
 ## Usage
 
