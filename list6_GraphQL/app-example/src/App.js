@@ -1,21 +1,6 @@
 const { GraphQLServer } = require('graphql-yoga');
 const axios = require("axios");
 
-const usersList = [
-    { id: 1, name: "Jan Konieczny", email: "jan.konieczny@wonet.pl", login: "jkonieczny" },
-    { id: 2, name: "Anna Wesołowska", email: "anna.w@sad.gov.pl", login: "anna.wesolowska" },
-    { id: 3, name: "Piotr Waleczny", email: "piotr.waleczny@gp.pl", login: "p.waleczny" }
-];
-
-const todosList = [
-    { id: 1, title: "Naprawić samochód", completed: false, user_id: 3 },
-    { id: 2, title: "Posprzątać garaż", completed: true, user_id: 3 },
-    { id: 3, title: "Napisać e-mail", completed: false, user_id: 3 },
-    { id: 4, title: "Odebrać buty", completed: false, user_id: 2 },
-    { id: 5, title: "Wysłać paczkę", completed: true, user_id: 2 },
-    { id: 6, title: "Zamówic kuriera", completed: false, user_id: 3 },
-];
-
 async function getRestUsersList() {
     try {
         const users = await axios.get("https://jsonplaceholder.typicode.com/users");
@@ -32,31 +17,74 @@ async function getRestUsersList() {
     }
 }
 
-function todoById(parent, args, context, info) {
-    return todosList.find(t => t.id == args.id);
+async function getRestUserById(id) {
+    try {
+        const user = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+        return {
+            id: user.data.id,
+            name: user.data.name,
+            email: user.data.email,
+            login: user.data.username,
+        };
+    }
+    catch (error) {
+        throw error;
+    }
 }
-function userById(parent, args, context, info) {
-    return usersList.find(u => u.id == args.id);
+
+async function getRestTodosList() {
+    try {
+        const users = await axios.get("https://jsonplaceholder.typicode.com/todos");
+        console.log(users);
+        return users.data.map(({ id, title, completed, userId }) => ({
+            id: id,
+            title: title,
+            completed: completed,
+            user_id: userId
+        }))
+    }
+    catch (error) {
+        throw error
+    }
+}
+
+async function getRestTodosById(id) {
+    try {
+        const user = await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        return {
+            id: user.data.id,
+            title: user.data.title,
+            completed: user.data.completed,
+            user_id: user.data.userId,
+        };
+    }
+    catch (error) {
+        throw error;
+    }
 }
 
 
 const resolvers = {
     Query: {
+        demo: () => 'Witaj, GraphQL działa',
         users: async () => getRestUsersList(),
-        todos: () => todosList,
-        todo: (parent, args, context, info) => todoById(parent, args, context, info),
-        user: (parent, args, context, info) => userById(parent, args, context, info),
+        todos: async () => getRestTodosList(),
+        todo: async (parent, args, context, info) => getRestTodosById(args.id),
+        user: async (parent, args, context, info) => getRestUserById(args.id)
     },
     User: {
-        todos: (parent, args, context, info) => {
-            return todosList.filter(t => t.user_id == parent.id);
+        todos: async (parent, args, context, info) => {
+            try {
+                const todos = await axios.get(`https://jsonplaceholder.typicode.com/todos?userId=${parent.id}`);
+                return todos.data;
+            } catch (error) {
+                throw error;
+            }
         }
     },
     ToDoItem: {
-        user: (parent, args, context, info) => {
-            return usersList.find(u => u.id == parent.user_id);
-        }
-    },
+        user: async (parent, args, context, info) => getRestUserById(parent.user_id)
+    }
 }
 
 const server = new GraphQLServer({
