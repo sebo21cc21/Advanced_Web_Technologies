@@ -61,8 +61,9 @@ const resolvers = {
 
         updateUser: async (parent, { input }, context, info) => {
             const { id, name, email, login } = input;
-            const update = await query('UPDATE users SET name = ?, email = ?, login = ? WHERE id = ?', [name], [email], [login], [id]);
-            return user[0];
+            const update = await query('UPDATE users SET name = ?, email = ?, login = ? WHERE id = ?', [name, email, login, id]);
+            const updatedUser = await query('SELECT * FROM users WHERE id = ?', [id]);
+            return updatedUser[0];
         },
 
         deleteUser: async (parent, { id }, context, info) => {
